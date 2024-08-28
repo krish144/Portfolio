@@ -1,0 +1,639 @@
+@import "variable";
+@import "mixins";
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color: $bg-body;
+    font-family: $Fira-font;
+}
+
+*,::after,::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+ul,li{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+a{
+    color: inherit;
+    text-decoration: none;
+}
+
+header,main,#footer .footer-container{
+    max-width: 100%;
+    margin: 0 10%;
+}
+
+
+// Header
+#header{
+    position: sticky;
+    top: 0;
+    background: $bg-body;
+    z-index: 1;
+.header-container{
+    @include flex-between;
+    padding: 25px 0;
+    ;
+
+    .logo-container{
+        img{
+            width: 180px;
+        }
+    }
+
+    .navbar-header,.navbar-footer,.menu-bar{
+        display: none;
+    }
+
+    .navbar-ul{
+        li{
+            a{
+            color: $color-gray;
+            span{
+                color:$color-primary;
+            }
+            &:hover{
+                color:$color-white;
+            }
+            
+            }
+            .active{
+                color: $color-white;
+            }
+        }
+    }
+
+}
+}
+
+// Side Sticky
+
+.sidebar{
+    position: fixed;
+    left: 20px;
+    top: 31%;
+    &::before{
+        content: '';
+        display: block;
+        position: absolute;
+        left: -77px;
+        top: -100px;
+        width: 185px;
+        height: 2px;
+        rotate: 90deg;
+        background-color: $color-gray;
+
+
+    }
+    .social-ul{
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+
+// Main
+
+#main{
+    .hero-section{
+        padding: 60px 0;
+        .hero-container{
+            @include flex-between;
+           
+            div{
+                width: 100%;
+                &:first-child{
+                h1{
+                    font-size: 32px;
+                    color: $color-white;
+                    line-height: 50px;
+                    span{
+                        color:$color-primary;
+                    }
+                }
+                p{
+                    margin: 25px 0;
+                    line-height: 25px;
+                    color: $color-gray;
+                }
+                a{
+                    @include primary-btn;
+                }
+                }
+                &:last-child{
+                      img{
+                            width: 100%;
+                        }
+                    .hero-img-footer{
+                        border: 1.5px solid $color-white;
+                        padding: 4px 5px 4px 30px;
+                        position: relative;
+                        color:$color-gray;
+                        max-width: 405px;
+                        margin: auto;
+                      
+                        span{
+                            color:$color-white;
+                        }
+                        &::before{
+                            content: '';
+                            display: block;
+                            position: absolute;
+                            top:9.4px;
+                            left: 15px;
+                            width: 10px;
+                            height:10px;
+                            background: $color-primary;
+                        }
+                    }
+                 
+                }
+            }
+
+        }
+    }
+}
+
+// Project Section
+
+.project-section{
+    padding: 60px 0;
+   .project-sec-header{
+    @include flex-between;
+    padding: 40px 0;
+    h2{
+        color: $color-white;
+        font-weight: 500;
+        font-size: 32px;
+        position: relative;
+        width: 90%;
+        span{
+            color: $color-primary;
+        }
+        &::after{
+            content: "";
+            display: block;
+            width: 47%;
+            height: 2px;
+            background: $color-primary;
+            position: absolute;
+            left: 20%;
+            top: 50%;
+        }
+    }
+    div{
+        @include flex-between;
+        gap:10px;
+        a{
+            transition: 0.6s transform;
+            &:hover{
+                transform: translateY(-5px);
+            }
+        }
+    }
+   }
+
+   .project-card-group{
+    display: flex;
+    
+    gap: 20px;
+    .project-card{
+        max-width: 330px;
+        overflow: hidden;
+        border: 1px solid $color-white;
+        .card-top-img{
+            img{
+                width: 100%;
+            }
+        }
+
+        .project-skills{
+            border: 1px solid $color-white;
+            margin: -4px;
+            padding: 5px 10px;
+            color: $color-gray;
+            display: flex;
+            gap:8px;
+        }
+
+        .card-details{
+            padding:10px 15px 20px;
+            h3{
+                font-size: 24px;
+                color:$color-white;
+            }
+            img{
+                width: 100%;
+            }
+            p{
+                margin: 20px 0 35px;
+                color: $color-gray;
+            }
+            a{
+                @include primary-btn;
+                &:last-child{
+                    border: 1px solid $color-gray;
+                    color: $color-gray;
+                }
+            }
+
+        }
+    }
+    }
+}
+
+
+// Skills
+
+.skill-section{
+    padding: 60px 0;
+    .skill-sec-header{
+        padding: 40px 0;
+        h2{
+            color: $color-white;
+            font-weight: 500;
+            font-size: 32px;
+            position: relative;
+            span{
+                color: $color-primary;
+            }
+            &::after{
+                content: "";
+                display: block;
+                width: 60%;
+                height: 2px;
+                background: $color-primary;
+                position: absolute;
+                left: 42%;
+                top: 50%;
+            }
+        }
+       }
+
+       .skill-container{
+        @include flex-between;
+        .skills-group{
+            display: flex;
+            gap:10px;
+            .skill-col{
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                .skill-card{
+                    max-width: 200px;
+                    border:1px solid $color-gray;
+                    .skill-card-header{
+                        padding: 5px 8px;
+                        color: $color-white;
+                        font-weight: 500;
+                        border-bottom: 1px solid $color-gray;
+                    }
+                    .skill-card-body{
+                        padding: 10px;
+                        line-height: 24px;
+                        color: $color-gray;
+                    }
+
+
+                }
+            }
+
+            
+        }
+       }
+    
+}
+
+// About 
+
+.about-section{
+    padding: 60px 0;
+    .about-sec-header{
+        padding: 40px 0;
+        h2{
+            color: $color-white;
+            font-weight: 500;
+            font-size: 32px;
+            position: relative;
+            span{
+                color: $color-primary;
+            }
+            &::after{
+                content: "";
+                display: block;
+                width: 50%;
+                height: 2px;
+                background: $color-primary;
+                position: absolute;
+                left: 38%;
+                top: 50%;
+            }
+        }
+       }
+       .about-container{
+        @include flex-align-start;
+        div{
+            flex: 50%;
+    
+        p{
+            color: $color-gray;
+            line-height: 26px;
+
+        }
+        &:last-child{
+            text-align: center;
+        }
+    }
+       }
+    }    
+
+    // Contact
+
+    .contact-section{
+        .contact-container{
+            @include flex-between;
+            align-items: flex-end;
+            padding: 60px 0 120px;
+            div{
+                flex: 50%;
+         .contact-sec-header{
+            padding: 40px 0;
+            h2{
+                color: $color-white;
+                font-weight: 500;
+                font-size: 32px;
+                position: relative;
+                span{
+                    color: $color-primary;
+                }
+                &::after{
+                    content: "";
+                    display: block;
+                    width: 50%;
+                    height: 2px;
+                    background: $color-primary;
+                    position: absolute;
+                    left: 38%;
+                    top: 50%;
+                }
+            }
+           
+           }
+           p{
+            color: $color-gray;
+        }
+        .contact-link-box{
+            border: 1px solid $color-white;
+            width: fit-content;
+            margin-left:auto;
+            margin-bottom: -90px;
+            padding: 20px;
+
+            h3{
+                color:$color-white;
+                font-weight: 500;
+            }
+
+            ul{
+                flex-direction: column;
+                gap: 5px;
+                margin: 15px 0 0;
+                a{
+                    @include flex-between;
+                    color:$color-gray;
+                }
+            }
+            
+
+        }
+        }
+        }
+    }
+
+    // footer
+
+    #footer{
+        border-top: 1px solid $color-white;
+        color:$color-gray;
+        .footer-container{
+            @include flex-between;
+            padding: 50px 0;
+            text-align: start;
+
+            .footer-links{
+                h3{
+                    color:$color-white;
+                }
+                &>div{
+                    display: flex;
+                    gap: 10px;
+                }
+            }
+          
+        }
+        & > div{
+            text-align: center;
+        }
+    }
+
+    // Small Laptop
+
+    @media (max-width:1190px){
+        header,main,#footer .footer-container{
+            margin: auto;
+            padding-left:3.5%;
+            padding-right:3.5%;
+        }
+
+        // Side Sticky
+
+        .sidebar{
+            display:  none;
+        }
+
+        .project-section{
+            .project-sec-header{
+                h2{
+                    &::after{
+                        left: 21.5%;
+                    }
+                }
+            }
+        }
+
+    }
+
+    // Tablet
+
+    @media (max-width:880px){
+        body ::after{
+            display: none !important;
+        }
+
+        #main{
+            .hero-section{
+                .hero-container{
+                    flex-direction: column;
+                    gap:50px;
+                }
+            }
+
+            .project-section{
+                .project-card-group{
+                  flex-wrap: wrap;
+                  margin: auto;
+                  justify-content: center;
+                  .project-card{
+                    width: 100%;
+                    .card-top-img{
+                        img{
+                            width: 100%;
+                        }
+                    }
+                  }
+                }
+            }
+
+        }
+
+
+        .skill-section{
+            .skill-container{
+                flex-direction: column;
+                div{
+                    width: 100%;
+                    img{
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        .about-section{
+            .about-container{
+                flex-direction: column;
+                justify-content: center;
+                div{
+                    flex: 100%;
+                    margin: auto;
+                }
+            }
+        }
+      
+
+    }
+
+
+    // Mobile
+
+    @media (max-width:730px){
+        body{
+            overflow-x: hidden;
+        }
+        #header{
+            .header-container{
+                .navbar{
+                    position: fixed;
+                    left: -100%;
+                    top: 0;
+                    background-color: $bg-body;
+                    height: 100vh;
+                    width: 100%;
+                    padding: 15px 25px;
+                    transition: 0.7s;
+                    .navbar-header{
+                       display: block;
+                       @include flex-between;
+                       img{
+                        max-width: 180px;
+                       }
+                    }
+
+                    .navbar-footer{
+                        display: block;
+                        position: absolute;
+                        bottom: 20px;
+                        left: 50%;
+                        transform: translateX(-50%);
+
+                    }
+
+                    .navbar-ul{
+                        flex-direction: column;
+                        margin-top: 30px;
+                    }
+                }
+                .menu-bar{
+                    display: block;
+                }
+            }
+        }
+
+        #main{
+            .hero-section, .project-section,.skill-section,.about-section{
+                padding: 30px 0;
+            }
+
+            .project-sec-header,.skill-sec-header, .about-sec-header,.contact-sec-header{
+                padding: 40px 0 25px;
+            }
+
+            .skill-container{
+                .skills-group{
+                    flex-direction: column;
+                    .skill-col{
+                        
+                        .skill-card{
+                            max-width: 100%;
+                        }
+                    }
+                }
+            }
+
+            .contact-section{
+                .contact-container{
+                    padding: 30px 0 120px;
+                }
+            }
+         
+        }
+
+
+        .contact-section{
+            .contact-container{
+                flex-direction: column;
+                align-items: center;
+                gap: 25px;
+                div{
+                    flex: 100%;
+                }
+                .contact-link-box{
+                    margin: auto;
+                }
+            }
+        }
+
+        #footer{
+            .footer-container{
+                flex-direction: column;
+                justify-content: center;
+                gap: 20px;
+                div{
+                    width: 100%;
+                    text-align: center;
+                }
+            }
+            padding: 10px 20px;
+        }
+    }

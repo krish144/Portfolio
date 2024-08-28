@@ -1,0 +1,23 @@
+
+
+@mixin flex-between{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@mixin flex-align-start{
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+}
+
+@mixin primary-btn{
+    border: 1.5px solid $color-primary;
+    padding: 10px 20px;
+    background-color: transparent;
+    color: $color-white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
