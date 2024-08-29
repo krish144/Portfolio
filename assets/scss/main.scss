@@ -437,6 +437,7 @@ header,main,#footer .footer-container{
                 }
                 &>div{
                     display: flex;
+                    justify-content: center;
                     gap: 10px;
                 }
             }
